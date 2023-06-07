@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 import static java.lang.Math.sqrt;
+import static javax.swing.text.StyleConstants.setBackground;
 
 public class Calculator implements ActionListener{
     JFrame frame;
@@ -19,9 +20,9 @@ public class Calculator implements ActionListener{
     {
         frame = new JFrame("CALCULATOR");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(550, 750);
+        frame.setSize(500, 730);
         frame.setLayout(null);
-        frame.setBackground(Color.black);
+        frame.getContentPane().setBackground(Color.black);
 
         textfield = new JTextField();
         textfield.setBounds(55, 25, 400, 50);
@@ -44,10 +45,11 @@ public class Calculator implements ActionListener{
         lala_land = new JButton("~");
 
 
-        addButton.setBackground(Color.orange);
-        subButton.setBackground(Color.magenta);
-        divButton.setBackground(Color.red);
-        mulButton.setBackground(Color.green);
+        addButton.setBackground(Color.cyan);
+        subButton.setBackground(Color.cyan);
+        divButton.setBackground(Color.cyan);
+        mulButton.setBackground(Color.cyan
+        );
         negButton.setBackground(Color.gray);
         delButton.setBackground(Color.gray);
         clrButton.setBackground(Color.gray);
@@ -134,8 +136,8 @@ public class Calculator implements ActionListener{
 
     public static void main(String[] args) {
         Calculator calc = new Calculator();
-
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
