@@ -42,7 +42,7 @@ public class Calculator implements ActionListener{
         sqrtButton = new JButton("root");
         perButton = new JButton("%");
         squareButton = new JButton("SQR");
-        lala_land = new JButton("~");
+        lala_land = new JButton("1/x");
 
 
         addButton.setBackground(Color.cyan);
@@ -67,10 +67,10 @@ public class Calculator implements ActionListener{
         functionButtons[10] = sqrtButton;
         functionButtons[11] = squareButton;
         functionButtons[12] = lala_land;
-        perButton.setBackground(Color.yellow);
-        sqrtButton.setBackground(Color.yellow);
-        squareButton.setBackground(Color.yellow);
-        lala_land.setBackground(Color.yellow);
+        perButton.setBackground(Color.pink);
+        sqrtButton.setBackground(Color.pink);
+        squareButton.setBackground(Color.pink);
+        lala_land.setBackground(Color.pink);
         equButton.setBackground(Color.CYAN);
         decButton.setBackground(Color.CYAN);
 
@@ -89,7 +89,7 @@ public class Calculator implements ActionListener{
             numberButtons[i].addActionListener(this);
             numberButtons[i].setFont(myFont);
             numberButtons[i].setFocusable(false);
-            numberButtons[i].setBackground(Color.pink);
+            numberButtons[i].setBackground(Color.white);
 
         }
         negButton.setBounds(55,600,120,50);
@@ -173,6 +173,12 @@ public class Calculator implements ActionListener{
             operator = "%";
             textfield.setText("");
         }
+        if(e.getSource() == lala_land)
+        {
+            num1 = Double.parseDouble(textfield.getText());
+            operator = "1/x";
+            textfield.setText("");
+        }
         if(e.getSource() == sqrtButton)
         {
             num1 = Double.parseDouble(textfield.getText());
@@ -195,31 +201,29 @@ public class Calculator implements ActionListener{
 
         if(e.getSource() == equButton)
         {
-            num2 = Double.parseDouble(textfield.getText());
+
             switch(operator)
             {
                 case"+":
+                    num2 = Double.parseDouble(textfield.getText());
                     result = num1 + num2;
+                    textfield.setText(String.valueOf(result));
                     break;
                 case"-":
+                    num2 = Double.parseDouble(textfield.getText());
                     result = num1 - num2;
+                    textfield.setText(String.valueOf(result));
                     break;
                 case"/":
+                    num2 = Double.parseDouble(textfield.getText());
                     result = num1 / num2;
+                    textfield.setText(String.valueOf(result));
                     break;
                 case"x":
+                    num2 = Double.parseDouble(textfield.getText());
                     result = num1*num2;
+                    textfield.setText(String.valueOf(result));
                     break;
-
-
-            }
-            textfield.setText(String.valueOf(result));
-            num1 = result;
-        }
-        if(e.getSource() == lala_land) {
-
-            switch(operator)
-            {
                 case"%":
                 {
                     result = num1/100;
@@ -237,13 +241,17 @@ public class Calculator implements ActionListener{
                     result = num1*num1;
                     textfield.setText(String.valueOf(result));
                     break;
+                case "1/x":
+                    result = 1/num1;
+                    textfield.setText(String.valueOf(result));
+                    break;
+
+
 
             }
-
+            //textfield.setText(String.valueOf(result));
             num1 = result;
-
         }
-
         if(e.getSource() == clrButton) {
 
             textfield.setText("");
